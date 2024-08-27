@@ -23,7 +23,7 @@ import textwrap
 
 # The full version, including alpha/beta/rc tags
 version = "1.7.2"
-
+language = "zh_CN"
 project = "Slint Reference"
 html_title = f'Slint {version} Reference' # Set title here, otherwise it will say "Slint Reference documentation"
 copyright = "SixtyFPS GmbH"

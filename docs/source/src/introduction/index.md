@@ -1,23 +1,23 @@
 <!-- Copyright © SixtyFPS GmbH <info@slint.dev> ; SPDX-License-Identifier: MIT -->
 
-# Getting Started
+# 开始使用
 
-Using Slint in your projects needs two components:
+要在你的项目中使用 Slint 需要两个组件：
 
-1. `.slint` files, which contain a textual description of the user interface, written in the Slint language.
-2. The programming language of the project where you embed the `.slint` files.
+1. `.slint` 文件，包含用 Slint 语言编写的用户界面文本描述。
+2. 项目的编程语言，用于嵌入 `.slint` 文件。
 
-    - Slint supports C++, Rust, and JavaScript.
+    - Slint 支持 C++, Rust, 和 JavaScript.
 
-There are three different pathways to get started with Slint:
+开始使用 Slint 有三种不同的途径：
 
-1. [SlintPad](https://slint.dev/editor) - Use this browser-based tool to get a feel for the Slint language.
-2. As a **UI Designer**, working with Slint files locally, we recommend the following combination of software tools:
+1. [SlintPad](https://slint.dev/editor) - 使用这个基于浏览器的工具来体验 Slint 语言。
+2. 作为 **UI 设计师**，在本地处理 Slint 文件时，我们推荐使用以下软件工具组合：
 
     - [Visual Studio Code](https://code.visualstudio.com)
     - [The Slint for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=Slint.slint)
 
-3. As a **Software Developer**, integrating Slint into a new or existing code base, [follow the quickstart](slint-qs:index.html) and then for more in-depth next steps read the language-specific documentation:
+3. 作为 **软件开发人员**，将 Slint 集成到新或现有代码库中时，[请按照快速入门指南](slint-qs:index.html) 进行操作，然后阅读语言特定的文档以获取更深入的后续步骤：
 
     - [C++](slint-cpp:index.html)
     - [Rust](slint-rust:index.html)

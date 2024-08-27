@@ -1,85 +1,82 @@
 <!-- Copyright © SixtyFPS GmbH <info@slint.dev> ; SPDX-License-Identifier: MIT -->
 
-# Getting started
+# 开始
 
-This tutorial shows you how to use the languages that Slint supports as the host programming language.
+本教程展示了如何使用 Slint 支持的语言作为主编程语言。
 
-We recommend using [our editor integrations for Slint](https://github.com/slint-ui/slint/tree/master/editors) for following this tutorial.
+我们建议使用 [我们为 Slint 提供的编辑器集成](https://github.com/slint-ui/slint/tree/master/editors) 来按照本教程进行操作。
 
-Slint has application templates you can use to create a project with dependencies already set up that follows recommended best practices.
+Slint 提供了应用模板，你可以使用这些模板创建一个项目，项目中已经配置好依赖项，并遵循推荐的最佳实践。
 
-## Prerequisites
+## 前提条件
 
 :::::{tab-set}
 
 ::::{tab-item} C++
 :sync: cpp
 
-Before using the template, you need a C++ compiler that supports C++ 20 and to install [CMake](https://cmake.org/download/) 3.21 or newer.
+在使用模板之前，你需要一个支持 C++ 20 的 C++ 编译器，并安装 [CMake](https://cmake.org/download/) 3.21 或更高版本。
 
-Clone or download the template repository:
+克隆或下载模板仓库：
 
 ```sh
 git clone https://github.com/slint-ui/slint-cpp-template memory
 cd memory
 ```
 
-### Configure the project
+### 配置项目
 
-The `CMakeLists.txt` uses the line `add_executable(my_application src/main.cpp)` to set `src/main.cpp` as the main C++ code file.
+`CMakeLists.txt` 使用 `add_executable(my_application src/main.cpp)` 这一行将 `src/main.cpp` 设置为主 C++ 代码文件。
 
-Replace the content of `src/main.cpp` with the following:
+将 `src/main.cpp` 的内容替换为以下内容：
 
 :::{literalinclude} main_initial.cpp
 :lines: 9-13
 :::
 
-Also in `CMakeLists.txt` the line
-`slint_target_sources(my_application ui/appwindow.slint)` is a Slint function used to
-add the `appwindow.slint` file to the target.
+在 `CMakeLists.txt` 中
+`slint_target_sources(my_application ui/appwindow.slint)` 这一行是一个 Slint 函数，用于将 `appwindow.slint` 文件添加到目标中。
 
-Replace the contents of `ui/appwindow.slint` with the following:
+将 `ui/appwindow.slint` 的内容替换为以下内容：
 
 :::{literalinclude} appwindow.slint
 :language: slint,no-preview
 :lines: 6-11
 :::
 
-Configure with CMake:
+使用 CMake 配置：
 
 ```sh
 cmake -B build
 ```
 
 :::{tip}
-When configuring with CMake, the FetchContent module fetches the source code of Slint via git.
-This may take some time when building for the first time, as the process needs to build
-the Slint runtime and compiler.
+在使用 CMake 配置时，FetchContent 模块通过 git 获取 Slint 的源代码。第一次构建时可能需要一些时间，因为这个过程需要构建 Slint 运行时和编译器。
 :::
 
-Build with CMake:
+使用 CMake 构建：
 
 ```sh
 cmake --build build
 ```
 
-### Run the application
+### 运行应用程序
 
-Run the application binary on Linux or macOS:
+在 Linux 或 macOS 上运行应用程序二进制文件：
 
 ```sh
 ./build/my_application
 ```
 
-Or on Windows:
+在 Windows 上:
 
 ```sh
 build\my_application.exe
 ```
 
-This opens a window with a green "Hello World" greeting.
+这将打开一个窗口，显示绿色的“Hello World”问候语。
 
-If you are stepping through this tutorial on a Windows machine, you can run the application at each step with:
+如果你在 Windows 机器上跟随本教程的每一步，可以使用以下命令运行应用程序：
 
 ```sh
 my_application
@@ -90,41 +87,41 @@ my_application
 ::::{tab-item} NodeJS
 :sync: nodejs
 
-Clone or download the template repository:
+克隆或下载模板仓库：
 
 ```sh
 git clone https://github.com/slint-ui/slint-nodejs-template memory
 cd memory
 ```
 
-Install dependencies with npm:
+使用 npm 安装依赖项：
 
 ```sh
 npm install
 ```
 
-### Configure the project
+### 配置项目
 
-The `package.json` file references `src/main.js` as the entry point for the application and `src/main.js` references `memory.slint` as the UI file.
+`package.json` 文件指定 `src/main.js` 作为应用程序的入口点， 而 `src/main.js` 指定  `memory.slint` 作为 UI 文件。
 
-Replace the contents of `src/main.js` with the following:
+将 `src/main.js` 的内容替换为以下内容：
 
 :::{literalinclude} main_initial.js
 :lines: 6-10
 :::
 
-The `slint.loadFile` method resolves files from the process's current working directory, so from the `package.json` file's location.
+The `slint.loadFile` 方法从进程的当前工作目录中解析文件，即从 `package.json` 文件所在的位置。
 
-Replace the contents of `ui/appwindow.slint` with the following:
+将 `ui/appwindow.slint` 的内容替换为以下内容：
 
 :::{literalinclude} memory.slint
 :language: slint,no-preview
 :lines: 6-11
 :::
 
-### Run the application
+### 运行应用程序
 
-Run the example with `npm start` and a window appears with the green "Hello World" greeting.
+使用 `npm start` 运行示例，窗口将出现绿色的“Hello World”问候语。
 
 ::::
 
@@ -132,9 +129,9 @@ Run the example with `npm start` and a window appears with the green "Hello Worl
 :sync: rust
 :selected: true
 
-We recommend using [rust-analyzer](https://rust-analyzer.github.io) and [our editor integrations for Slint](https://github.com/slint-ui/slint/tree/master/editors) for following this tutorial.
+我们建议使用 [rust-analyzer](https://rust-analyzer.github.io) 和 [我们为 Slint 提供的编辑器集成](https://github.com/slint-ui/slint/tree/master/editors) 来按照本教程进行操作。
 
-Install the [template](https://github.com/slint-ui/slint-rust-template) with the following commands:
+使用以下命令安装 [模板](https://github.com/slint-ui/slint-rust-template) ：
 
 ```sh
 cargo install cargo-generate
@@ -142,9 +139,9 @@ cargo generate --git https://github.com/slint-ui/slint-rust-template --name memo
 cd memory
 ```
 
-### Configure the project
+### 配置项目
 
-Replace the contents of `src/main.rs` with the following:
+将 `src/main.rs` 的内容替换为以下内容：
 
 ```rust
 slint::include_modules!();
@@ -156,16 +153,16 @@ fn main() -> Result<(), slint::PlatformError> {
 }
 ```
 
-Replace the contents of `ui/appwindow.slint` with the following:
+将 `ui/appwindow.slint` 的内容替换为以下内容：
 
 :::{literalinclude} memory.slint
 :language: slint,no-preview
 :lines: 6-11
 :::
 
-### Run the application
+### 运行应用程序
 
-Run the example with `cargo run` and a window appears with the green "Hello World" greeting.
+使用 `cargo run` 运行示例，窗口将出现绿色的“Hello World”问候语。
 
 ::::
 

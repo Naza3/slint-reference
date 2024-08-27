@@ -1,18 +1,15 @@
 .. Copyright © SixtyFPS GmbH <info@slint.dev>
 .. SPDX-License-Identifier: MIT
 
-Quickstart
+快速开始
 ==========
 
-This tutorial introduces you to the Slint UI framework in a playful way by implementing a memory game. It combines the Slint language for the graphics with the game rules implemented in C++, Rust, or NodeJS.
+本教程以一种有趣的方式介绍了 Slint UI 框架，通过实现一个记忆游戏来展示。它将用于图形的 Slint 语言与用 C++、Rust 或 NodeJS 实现的游戏规则相结合。
 
-The game consists of a grid of 16 rectangular tiles. Clicking on a tile uncovers an icon underneath.
-There are 8 different icons in total, so each tile has a sibling somewhere in the grid with the
-same icon. The objective is to locate all icon pairs. The player can uncover two tiles at the same time. If they
-aren't the same, the game obscures the icons again.
-If the player uncovers two tiles with the same icon, then they remain visible - they're solved.
+游戏由一个包含 16 个矩形图块的网格组成。点击一个图块会揭示其下面的图标。总共有 8 种不同的图标，因此每个图块在网格中都有一个具有相同图标的配对。
+目标是找到所有图标配对。玩家可以同时揭示两个图块。如果它们不相同，游戏会再次遮住这些图标。
 
-This is how the game looks in action:
+这是游戏运行时的样子：
 
 .. raw:: html
    

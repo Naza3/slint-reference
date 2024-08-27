@@ -1,9 +1,8 @@
 <!-- Copyright © SixtyFPS GmbH <info@slint.dev> ; SPDX-License-Identifier: MIT -->
 
-# Memory Tile
+# 记忆图块
 
-With the skeleton code in place, this step looks at the first element of the game, the memory tile. It's the
-visual building block that consists of an underlying filled rectangle background, the icon image. Later steps add a covering rectangle that acts as a curtain.
+在程序框架代码就位后，本步骤将关注游戏的第一个元素——记忆图块。它是由一个填充的矩形背景和图标图像组成的视觉构建块。后续步骤会添加一个覆盖矩形作为遮罩。
 
 You declare the background rectangle as 64 logical pixels wide and tall
 filled with a soothing tone of blue.

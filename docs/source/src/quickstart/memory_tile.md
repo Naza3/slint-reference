@@ -4,29 +4,26 @@
 
 在程序框架代码就位后，本步骤将关注游戏的第一个元素——记忆图块。它是由一个填充的矩形背景和图标图像组成的视觉构建块。后续步骤会添加一个覆盖矩形作为遮罩。
 
-You declare the background rectangle as 64 logical pixels wide and tall
-filled with a soothing tone of blue.
+你将背景矩形声明为 64 个逻辑像素宽和高，并填充上舒缓的蓝色调。
 
-Lengths in Slint have a unit, here, the `px` suffix.
-This makes the code easier to read and the compiler can detect when you accidentally
-mix values with different units attached to them.
+Slint 中的长度有单位，这里使用了 `px` 后缀。
+这使得代码更易读，并且编译器可以检测到你是否不小心混合了不同单位的值。
 
-Copy the following code into `ui/appwindow.slint` file, replacing the current content:
+将以下代码复制到 `ui/appwindow.slint` 文件，替换当前内容：
 
 :::{literalinclude} memory_tile.slint
 :language: slint,no-preview
 :lines: 5-19
 :::
 
-This exports the <span class="hljs-title">MainWindow</span> component so that the game logic code can access it later.
+这将导出 <span class="hljs-title">MainWindow</span> 组件，以便游戏逻辑代码可以在后续访问它。
 
-Inside the <span class="hljs-built_in">Rectangle</span> place an <span class="hljs-built_in">Image</span> element that
-loads an icon with the <span class="hljs-built_in">@image-url()</span> macro. The path is relative to the location of `ui/appwindow.slint`.
+在 <span class="hljs-built_in">Rectangle</span> 内部放置一个 <span class="hljs-built_in">Image</span> 元素，该元素使用 <span class="hljs-built_in">@image-url()</span> 宏加载图标。路径是相对于 `ui/appwindow.slint` 文件的位置。
 
-You need to install this icon and others you use later first. You can download a pre-prepared
-[Zip archive](https://slint.dev/blog/memory-game-tutorial/icons.zip) to the `ui` folder,
+你需要先安装这个图标以及后续使用的其他图标。你可以将预先准备好的
+[Zip 文件](https://slint.dev/blog/memory-game-tutorial/icons.zip) 下载到 `ui` 文件夹中，
 
-If you are on Linux or macOS, download and extract it with the following commands:
+如果你使用的是 Linux 或 macOS，可以使用以下命令下载并解压缩：
 
 ```sh
 cd ui
@@ -35,7 +32,7 @@ unzip icons.zip
 cd ..
 ```
 
-If you are on Windows, use the following commands:
+如果你使用的是 Windows，使用以下命令：
 
 ```sh
 cd ui
@@ -44,20 +41,20 @@ powershell Expand-Archive -Path icons.zip -DestinationPath .
 cd ..
 ```
 
-This unpacks an `icons` directory containing several icons.
+这将解压出一个包含多个图标的 `icons` 目录。
 
 ::::{tab-set}
 :::{tab-item} C++
 :sync: cpp
 
-Compiling the program with `cmake --build build` and running with the `./build/my_application` opens a window that shows the icon of a bus on a blue background.
+使用 `cmake --build build` 编译程序，并使用 `./build/my_application` 运行程序，将打开一个窗口，显示在蓝色背景上的公交车图标。
 
 :::
 
 :::{tab-item} NodeJS
 :sync: nodejs
 
-Running the program with `npm start` opens a window that shows the icon of a bus on a blue background.
+使用 `npm start` 运行程序，将打开一个窗口，显示在蓝色背景上的公交车图标。
 
 :::
 
@@ -65,7 +62,7 @@ Running the program with `npm start` opens a window that shows the icon of a bus
 :sync: rust
 :selected: true
 
-Running the program with `cargo run` opens a window that shows the icon of a bus on a blue background.
+使用 `cargo run` 运行程序，将打开一个窗口，显示在蓝色背景上的公交车图标。
 
 :::
 

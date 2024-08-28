@@ -1,6 +1,6 @@
 <!-- Copyright © SixtyFPS GmbH <info@slint.dev> ; SPDX-License-Identifier: MIT -->
 
-# 开始使用
+# 起步
 
 要在你的项目中使用 Slint 需要两个组件：
 

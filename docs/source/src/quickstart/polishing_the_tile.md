@@ -1,43 +1,38 @@
 <!-- Copyright © SixtyFPS GmbH <info@slint.dev> ; SPDX-License-Identifier: MIT -->
 
-# Polishing the Tile
+# 打磨图块
 
-In this step, you add a curtain-like cover that opens when clicked. You do this by declaring two rectangles
-below the <span class="hljs-built_in">Image</span>, so that Slint draws them after the Image and thus on top of the image.
+在此步骤中，你将添加一个帘幕状的覆盖层，点击时会打开。你可以通过在 <span class="hljs-built_in">Image</span> 元素下方声明两个矩形来实现这一点，这样 Slint 就会在绘制图像之后绘制这些矩形，从而使它们显示在图像的顶部。
 
-The <span class="hljs-built_in">TouchArea</span> element declares a transparent rectangular region that allows
-reacting to user input such as a mouse click or tap. The element forwards a callback to the <em>MainWindow</em> indicating that a user clicked the tile.
+<span class="hljs-built_in">TouchArea</span> 元素声明了一个透明的矩形区域， 用于响应用户输入，例如鼠标点击或轻触。该元素将回调函数传递给 <em>MainWindow</em> ，以指示用户点击了图块。
 
-The <em>MainWindow</em> reacts by flipping a custom <em>open_curtain</em> property.
-Property bindings for the animated width and x properties also use the custom <em>open_curtain</em> property.
+<em>MainWindow</em> 通过切换自定义的 <em>open_curtain</em> 属性来做出响应。
+动画的 width 和 x属性的绑定也使用了这个自定义的 <em>open_curtain</em> 属性。
 
-The following table shows more detail on the two states:
+下表详细说明了这两个状态：
 
 | _open_curtain_ value:   | false                                                                        | true                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Left curtain rectangle  | Fill the left half by setting the width _width_ to half the parent's width   | Width of zero makes the rectangle invisible                                                                   |
-| Right curtain rectangle | Fill the right half by setting _x_ and _width_ to half of the parent's width | _width_ of zero makes the rectangle invisible. _x_ moves to the right, sliding the curtain open when animated |
+| 左侧帘幕矩形  | 通过将宽度 _width_ 设置为父级宽度的一半来填充左半部分   | 将 _width_ 设为零会使矩形不可见。                                                                  |
+| 右侧帘幕矩形 |通过将 _x_ 和 _width_ 设置为父级宽度的一半来填充右半部分。 | 将 _width_ 设为零会使矩形不可见。 _x_ 向右移动， 动画时滑动帘幕打开。
 
-To make the tile extensible, replace the hard-coded icon name with an _icon_
-property that can be set when instantiating the element.
+为了使图块具有扩展性，将硬编码的图标名称替换为一个 _icon_ 属性
+，该属性可以在实例化元素时设置。
 
-For the final polish, add a
-_solved_ property used to animate the color to a shade of green when a player finds a pair.
+最后一步，添加一个
+_solved_ 属性，用于在玩家找到配对时将颜色动画过渡到绿色的阴影。
 
-Replace the code inside the `ui/appwindow.slint` file with the following:
+用以下内容替代 `ui/appwindow.slint` 文件:
 
 :::{literalinclude} main_polishing_the_tile.rs
 :language: slint,no-preview
 :lines: 10-61
 :::
 
-The code uses `root` and `self`. `root` refers to the outermost
-element in the component, the <span class="hljs-title">MemoryTile</span> in this case. `self` refers
-to the current element.
+代码中使用的 `root` 和 `self`. `root` 指的是组件中的最外层元素，当前情况下是指 <span class="hljs-title">MemoryTile</span> 。`self` 指的是当前元素。
 
-The code exports the <span class="hljs-title">MainWindow</span> component. This is necessary so that you can later access it
-from application business logic.
+代码导出了 <span class="hljs-title">MainWindow</span> 组件。为了可以在后续的应用程序业务逻辑中访问它，这一步是必要的。
 
-Running the code opens a window with a rectangle that opens up to show the bus icon when clicked. Subsequent clicks close and open the curtain again.
+运行代码将打开一个窗口，点击矩形会展开，显示公交车图标。后续的点击会再次关闭和打开帘幕。
 
 <video autoplay loop muted playsinline src="https://slint.dev/blog/memory-game-tutorial/polishing-the-tile.mp4"></video>
